@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% block body %}
+<center>
+
+<h1><u>Bill</u></h1>
+<table border="2">
+  <tr>
+    <th>ID</th>
+    <th>Bill</th>
+
+
+  </tr>
+{% if data %}
+{% for d in data %}
+<tr>
+  {% for d2 in d %}
+  <td>{{d2}}</td>
+  {% endfor %}
+{% endfor %}
+</tr>
+{% endif %}
+</table>
+</center>
+
+<center>
+    {% set points = [0] -%}
+{% for d in data -%}
+    {% if points.append(points.pop()+ d[1]) -%}{% endif %}
+{% endfor %}
+
+    <p>The total bill is : </p>{{points}}
+
+
+</center>
+{% if msg %}
+{% if msg != None %}
+{{msg}}
+{% endif %}
+{% endif %}
+{% endblock %}

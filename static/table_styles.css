@@ -1,0 +1,44 @@
+/* ---- signup/login ----*/
+body{
+	/* margin: 0;
+	padding: 0; */
+	/* display: flex;
+	justify-content: center;
+	align-items: center; */
+	/* min-height: 100vh; */
+	font-family: 'Jost', sans-serif;
+	/* background: #E3E6F3; */
+	background: url(/static/assets/small_back.png);
+	background-size: cover;
+	/* background-image: url("/static/assets/4.jpg"); */
+	/* background-size: cover; */
+	/* background-position: top 25% right 0; */
+  /* padding: 0 80px; */
+	/* justify-content: center; */
+}
+
+.sorting {
+	background-color: #00548D;
+	color:  white;
+}
+/* 8 17 10 10 10 5 */
+/* .paginate_button 
+ */
+
+#chk{
+	display: none;
+}
+.signup{
+	position: relative;
+	width:100%;
+	height: 100%;
+}
+label{
+	font-size: 1.5em;
+	justify-content: center;
+	display: flex;
+	margin: 60px;
+	font-weight: bold;
+	cursor: pointer;
+	transition: .5s ease-in-out;
+}
