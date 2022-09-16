@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% block body %}
+<center>
+  
+<h1><u>Patients</u></h1>
+<table id ="pat_table" border="2">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Speice</th>
+      <th>Checkup Type</th>
+    </tr>
+  </thead>
+  <tbody>   
+  </tbody>
+</table>
+
+
+<form action="/for_app_patients" method="POST">
+  <input type="number" name="id" placeholder="Enter ID of Patient:" required="">
+  <input type="time" name="time" placeholder="Enter appointment time:" required="">
+  <input type="date" name="date" placeholder="Enter appointment date:" required="">
+  <button type="submit">Choose</button>
+</form>
+</center>
+{% if msg %}
+{% if msg != None %}
+{{msg}}
+{% endif %}
+{% endif %}
+
+
+<script src="/static/for_appt_patinets.js"></script>
+
+
+{% endblock %}

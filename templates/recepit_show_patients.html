@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+
+  <link rel="stylesheet" href="/static/table_styles.css">
+
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+
+  <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+
+  <script>
+    $(document).ready( function () {
+        $('#myTable').DataTable();
+    } );
+  </script>
+
+  <title>Show Patients</title>
+</head>
+<body>
+  
+  <center>
+  
+    <h1><u>Patients</u></h1>
+    <table id="myTable" class="display" style="width: 100%;" border="2">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Specie</th>
+          <th>Name</th>
+          <th>Phone No</th>
+          <th>Checkup Type</th>
+          <th>Medicine</th>
+          <th>Diagnosis</th>
+          <th>Bill</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% if data %}
+        {% for d in data %}
+          <tr>
+            {% for d2 in d %}
+            <td>{{d2}}</td>
+            {% endfor %}
+          {% endfor %}
+          </tr>
+      </tbody>
+      {% endif %}
+    </table>
+    
+    <form action="/receipt_show_patients" method="POST">
+      <input type="text" name="id" placeholder="Patient Id:">
+      <button type="submit">Get Receipt</button>
+    </form>
+
+
+    </center>
+
+
+
+
+
+    {% if msg %}
+      {% if msg != None %}
+        {{msg}}
+      {% endif %}
+    {% endif %}
+
+</body>
+</html>

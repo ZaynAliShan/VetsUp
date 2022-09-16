@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block body %}
+
+  <center>
+    <ul>
+      <h2>Admin: Dashboard</h2>
+      <li style="list-style-type: none"><a href="/showdoctor">Show Doctors</a><br></li>
+      <li style="list-style-type: none"><a href="/show_receptionists">Show Receptionists</a><br></li>
+      <li style="list-style-type: none"><a href="/show_employees">Show Employees</a><br></li>
+      <!-- <li style="list-style-type: none"><a href="/show_items">Show Items</a><br></li> -->
+      <li style="list-style-type: none"><a href="/show_members">Show Members</a><br></li>
+      <li style="list-style-type: none"><a href="/show_bill">Show Bill</a><br></li>
+      <li style="list-style-type: none"><a href="/remove_member">Remove Member</a><br></li>
+    </ul>
+
+    <!-- <h2>Success: Receptionist logged in!</h2>
+    <h3>Session Maintained! <br> With id: {{ id }}, With email: {{ email }}, With pass: {{ password }}</h3> -->
+    <button><a href="/logout" style="color:white;">Click to logout</a></button>
+
+  </center>
+
+{% if msg %}
+{% if msg != None %}
+{{msg}}
+{% endif %}
+{% endif %}
+{% endblock %}

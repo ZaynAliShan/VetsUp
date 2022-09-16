@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>VetsUp</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}">
+	<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+  <center>
+<!--    {% if data %}-->
+<!--    {% if data != None %}-->
+<!--    {{data}}-->
+<!--    {% endif %}-->
+<!--    {% endif %}-->
+    <h2><u>Add Doctor</u></h2>
+    {% if data != None %}
+    <form id="form" action="/updatedoctordata" method="POST">
+      <input type="text" name="first_name" placeholder="First Name" value={{data[1]}} required="">
+      <input type="text" name="last_name" placeholder="Last name" value={{data[2]}} required="">
+      <input type="text" name="username" placeholder="Username" value={{data[8]}} required="">
+      <input type="text" name="cnic" placeholder="Doctor CNIC" value={{data[7]}} required="">
+      <input type="number" name="age" placeholder="Doctor age" value={{data[6]}} required="">
+      <input type="text" name="gender" placeholder="Doctor gender" value={{data[3]}} required="">
+      <input type="text" name="address" placeholder="Doctor address" value={{data[4]}} required="">
+      <input type="text" name="phone_no" placeholder="Doctor Tel" value={{data[5]}} required="">
+      <input type="text" name="visitingTime" placeholder="Doctor visiting Time" value={{data[10]}} required="">
+      <input type="number" name="noOfDays" placeholder="Doctor No. of days" value={{data[11]}} required="">
+      <input type="text" name="rank" placeholder="Doctor Rank" value={{data[12]}} required="">
+      <br>
+      <button id="update" type="submit" >Submit</button>
+    </form>
+      {% endif %}
+      {% if data == None %}
+      <h1>No data found</h1>
+
+      {% endif %}
+
+  </center>
+
+
+<!--<script>-->
+<!--    $(document).ready(function(){-->
+<!--        // click on button submit-->
+<!--        $("#update").on('click', function(){-->
+
+<!--           var formdata = $("#form").serializeArray();-->
+<!--            var data = {};-->
+<!--            $(formdata ).each(function(index, obj){-->
+<!--                data[obj.name] = obj.value;-->
+<!--            });-->
+<!--            data=JSON.stringify(data)-->
+<!--            console.log(data)-->
+<!--              $.ajax({-->
+<!--                  url: '/api/updatedoctordata', // url where to submit the request-->
+<!--                  type : "PUT", // type of action POST || GET-->
+<!--                  data : data, // post data || get data-->
+<!--                  dataType : 'json',-->
+<!--                  contentType: "application/json; charset=utf-8",-->
+<!--                  success : function(result) {-->
+<!--                      // you can see the result from the console-->
+<!--                      // tab of the developer tools-->
+<!--                      console.log(result)-->
+<!--                  },-->
+<!--                  error: function(xhr, resp, text) {-->
+<!--                      console.log(xhr, resp, text);-->
+<!--                  }-->
+<!--            })-->
+<!--        }-->
+<!--                else-->
+<!--                  document.getElementById("error").innerHTML = "Please Select someone";-->
+<!--                setTimeout(()=>{document.getElementById("error").innerHTML = ""}, 1500);-->
+<!--        });-->
+<!--console.log("in function")-->
+<!--    });-->
+<!--    </script>-->
+
+
+
+</body>
+</html>

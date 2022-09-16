@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+
+  <link rel="stylesheet" href="/static/table_styles.css">
+
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+
+  <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+
+  <script>
+    $(document).ready( function () {
+        $('#myTable').DataTable();
+    } );
+  </script>
+
+  <title>Show Doctors</title>
+</head>
+<body>
+  
+  <center>
+  
+    <h1><u>Doctors</u></h1>
+    <table id="myTable" class="display" style="width: 100%;" border="2">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>First name</th>
+          <th>Last name</th>
+          <th>Gender</th>
+          <th>Address</th>
+          <th>Phone no</th>
+          <th>Age</th>
+          <th>Cnic</th>
+          <th>Joining Date</th>
+          <th>Visiting Time</th>
+          <th>Number of Days</th>
+          <th>Rank</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% if data %}
+        {% for d in data %}
+          <tr>
+            {% for d2 in d %}
+            <td>{{d2}}</td>
+            {% endfor %}
+          {% endfor %}
+          </tr>
+      </tbody>
+      {% endif %}
+    </table>
+    <!-- <a href="/teacherDashboard">Dashboard</a> -->
+    </center>
+    {% if msg %}
+      {% if msg != None %}
+        {{msg}}
+      {% endif %}
+    {% endif %}
+
+</body>
+</html>

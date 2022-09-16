@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+{% block body %}
+<center>
+  
+<h1><u>Doctors</u></h1>
+  <span id="error" style="color:red"></span>
+<table border="2">
+  <tr>
+    <th>Select</th>
+    <th>ID</th>
+    <th>First name</th>
+    <th>Last name</th>
+    <th>Gender</th>
+    <th>Address</th>
+    <th>Phone no</th>
+    <th>Age</th>
+    <th>Cnic</th>
+    <th>Joining Date</th>
+    <th>Visiting Time</th>
+    <th>Number of Days</th>
+    <th>Rank</th>
+  </tr>
+{% if data %}
+{% for d in data %}
+<tr>
+   <td><input type="radio"  value={{d[0]}} name="rradio" ></td>
+  {% for d2 in d %}
+  <td>{{d2}}</td>
+  {% endfor %}
+{% endfor %}
+</tr>
+{% endif %}
+</table>
+  <button id="delDoctor" type="button">Update Doctor</button>
+
+
+
+</center>
+
+{% if msg %}
+{% if msg != None %}
+{{msg}}
+{% endif %}
+{% endif %}
+
+<script>
+    $(document).ready(function(){
+        // click on button submit
+        $("#delDoctor").on('click', function(){
+            // send ajax
+            console.log("del");
+            var rButton =$("input[type='radio'][name='rradio']:checked").val();
+            if(rButton)
+            {
+            console.log(rButton);
+            document.location.href = "/getdoctor/"+rButton;
+        }
+                else
+                  document.getElementById("error").innerHTML = "Please Select someone";
+                setTimeout(()=>{document.getElementById("error").innerHTML = ""}, 1500);
+        });
+console.log("in function")
+    });
+    </script>
+
+
+{% endblock %}
+

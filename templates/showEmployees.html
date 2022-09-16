@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% block body %}
+<center>
+  
+<h1><u>Employees</u></h1>
+<table border="2">
+  <tr>
+    <th>ID</th>
+    <th>First name</th>
+    <th>Last name</th>
+    <th>Gender</th>
+    <th>Job</th>
+    <th>Address</th>
+    <th>Phone no</th>
+    <th>Age</th>
+    <th>Cnic</th>
+    <th>Joining Date</th>
+
+  </tr>
+{% if data %}
+{% for d in data %}
+<tr>
+  {% for d2 in d %}
+  <td>{{d2}}</td>
+  {% endfor %}
+{% endfor %}
+</tr>
+{% endif %}
+</table>
+  <a href="/deleteshowemployee">Click to Delete Employee</a>
+  <br>
+  <a href="/add_employee">Click to Add Employee</a>
+</center>
+{% if msg %}
+{% if msg != None %}
+{{msg}}
+{% endif %}
+{% endif %}
+{% endblock %}
