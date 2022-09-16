@@ -1,0 +1,5 @@
+DB_IP = "localhost"
+DB_USER = "root"
+DB_PASSWORD = ""
+DB_NAME = "vets"
+SECRET_KEY = "!1234xcsd"
